@@ -23,7 +23,9 @@ module.exports.userController = {
       const user = await User.create({ login: login, password: hash });
       res.json(user);
     } catch (err) {
-      return res.status(400).json({error: "Ошибка при регистрации: " + err.toString()})
+      return res
+        .status(400)
+        .json({ error: "Ошибка при регистрации: " + err.toString() });
     }
   },
 
@@ -51,11 +53,19 @@ module.exports.userController = {
         expiresIn: "24h",
       });
 
-      res.json({token:token, id: payload.id});
+      res.json({ token: token, id: payload.id });
     } catch (err) {
       console.log({ err });
     }
   },
-
+  addImage: async (req, res) => {
+    try {
+      const addImage = User.create({
+        image: req.file.path,
+      });
+      res.json(addImage);
+    } catch (e) {
+      res.json(`Ошибка в UserController=>AddImage${e.toString}`);
+    }
+  },
 };
-
