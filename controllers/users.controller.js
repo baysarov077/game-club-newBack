@@ -56,11 +56,12 @@ module.exports.userController = {
       res.json({ token: token, id: payload.id });
     } catch (err) {
       console.log({ err });
+      res.json(err);
     }
   },
   addImage: async (req, res) => {
     try {
-      const addImage = User.create({
+      const addImage = User.findByIdAndUpdate({
         image: req.file.path,
       });
       res.json(addImage);
