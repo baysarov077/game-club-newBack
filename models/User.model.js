@@ -6,9 +6,15 @@ const userSchema = mongoose.Schema({
     type: String,
     unique: true,
   },
-  amount: String,
+  amount: {
+    type: String,
+    default: null
+  },
   password: String,
-  image: String,
+  image: {
+    type: String,
+    default: null
+  },
 });
 
 const User = mongoose.model("User", userSchema);
