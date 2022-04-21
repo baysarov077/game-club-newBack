@@ -11,6 +11,14 @@ module.exports.userController = {
       res.json({ error: "Ошибка при выводе пользователей" });
     }
   },
+  getByIdUser: async (req, res) => {
+    try {
+      const getIdUser = await User.findById(req.params.id);
+      res.json(getIdUser);
+    } catch (e) {
+      res.json(e.toString());
+    }
+  },
   registerUser: async (req, res) => {
     try {
       const { login, password } = req.body;
@@ -56,16 +64,29 @@ module.exports.userController = {
       res.json({ token: token, id: payload.id });
     } catch (err) {
       console.log({ err });
+      res.json(err);
     }
   },
   addImage: async (req, res) => {
     try {
-      const addImage = User.create({
+      await User.findByIdAndUpdate(req.params.id, {
         image: req.file.path,
       });
+
+      const addImage = await User.findById(req.params.id);
       res.json(addImage);
     } catch (e) {
-      res.json(`Ошибка в UserController=>AddImage${e.toString}`);
+      res.json(`Ошибка в UserController=>AddImage${e.toString()}`);
+    }
+  },
+  addAmount: async (req, res) => {
+    try {
+      const amo = await User.findByIdAndUpdate(req.params.id, {
+        amount: req.body.amount,
+      });
+      res.json(amo);
+    } catch (e) {
+      res.json(e.toString());
     }
   },
 };
