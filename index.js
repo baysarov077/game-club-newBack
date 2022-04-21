@@ -12,6 +12,8 @@ app.use(require("./routes/users.route"));
 app.use(require("./routes/news.route"));
 app.use(require("./routes/comments.route"));
 app.use(require("./routes/category.route"));
+app.use(require("./routes/message.route"))
+app.use(require("./routes/product.route"))
 app.use(require("./routes/equipment.route"));
 
 mongoose
