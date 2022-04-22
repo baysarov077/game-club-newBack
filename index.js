@@ -15,6 +15,7 @@ app.use(require("./routes/category.route"));
 app.use(require("./routes/message.route"))
 app.use(require("./routes/product.route"))
 app.use(require("./routes/equipment.route"));
+app.use(require('./routes/cart.route'))
 
 mongoose
   .connect(process.env.URL)
