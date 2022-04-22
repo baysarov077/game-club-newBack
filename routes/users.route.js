@@ -15,6 +15,7 @@ router.patch(
   userController.addImage
 );
 router.patch("/amount/:id", userController.addAmount);
+router.patch("/nickname/:id", userController.addNickName);
 // router.patch("/users/:id", userController.changeUser);
 // router.delete("/users/:id", userController.deleteUser);
 

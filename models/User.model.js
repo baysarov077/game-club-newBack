@@ -6,9 +6,19 @@ const userSchema = mongoose.Schema({
     type: String,
     unique: true,
   },
-  amount: String,
+  nickName: {
+    type: String,
+    default: null,
+  },
+  amount: {
+    type: String,
+    default: 0,
+  },
   password: String,
-  image: String,
+  image: {
+    type: String,
+    default: null,
+  },
 });
 
 const User = mongoose.model("User", userSchema);

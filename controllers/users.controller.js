@@ -89,4 +89,16 @@ module.exports.userController = {
       res.json(e.toString());
     }
   },
+  addNickName: async (req, res) => {
+    try {
+      await User.findByIdAndUpdate(req.params.id, {
+        nickName: req.body.nickName,
+      });
+      const nick = await User.findById(req.params.id);
+
+      res.json(nick);
+    } catch (e) {
+      res.json(e.toString());
+    }
+  },
 };
