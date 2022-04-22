@@ -14,9 +14,11 @@ app.use(require("./routes/category.route"));
 app.use(require("./routes/message.route"))
 app.use(require("./routes/product.route"))
 app.use(require("./routes/equipment.route"));
+app.use(require('./routes/cart.route'));
 app.use(require("./routes/places.route"));
 app.use(require("./routes/ps.route"));
 app.use(require("./routes//vips.model"));
+
 
 mongoose
   .connect(process.env.URL)

@@ -15,7 +15,8 @@ module.exports.productController = {
       const data = await Product.create({
         img: req.body.img,
         name: req.body.name,
-        price: req.body.price
+        price: req.body.price,
+        categoryId: req.body.categoryId
       })
       return res.json(data)
     } catch (error) {
