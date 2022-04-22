@@ -11,6 +11,7 @@ module.exports.catsController = {
       res.status(400).json(e.toString());
     }
   },
+  
   getCats: async (req, res) => {
     try {
       const getCat = await Cats.find();

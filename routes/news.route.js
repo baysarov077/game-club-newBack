@@ -5,10 +5,10 @@ const authMiddleware = require("../models/middlewares/auth.middleware");
 
 const router = Router();
 
-router.get("/news", authMiddleware, newsController.getNews);
-router.get("/news/:id", authMiddleware, newsController.getNewsById);
-router.post("/news", authMiddleware, newsController.createNews);
-router.delete("/news/:id", authMiddleware, newsController.deleteNews);
+router.get("/news", newsController.getNews);
+router.get("/news/:id", newsController.getNewsById);
+router.post("/news", newsController.createNews);
+router.delete("/news/:id", newsController.deleteNews);
 // router.patch("/todos/:id", todoController.changeTodo);
 
 module.exports = router;
